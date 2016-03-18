@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">${db-url}</property>
+		<property name="hibernate.connection.username">${db-username}</property>
+		<property name="hibernate.connection.password">${db-password}</property>
+		<property name="hibernate.dialect">com.system.utils.DialectForInkfish</property>
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<property name="connection.autocommit">true</property> 
+		<mapping resource="com/system/model/User.hbm.xml" />
+		<mapping resource="com/system/model/News.hbm.xml" />
+		<mapping resource="com/system/model/Company.hbm.xml" />
+		<mapping resource="com/system/model/Rights.hbm.xml" />
+		<mapping resource="com/system/model/Role.hbm.xml" />
+		<mapping resource="com/system/model/RightRole.hbm.xml" />
+		<mapping resource="com/system/model/UserRole.hbm.xml" />
+		<mapping resource="com/system/model/Comment.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

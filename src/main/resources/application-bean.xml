@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean name="User" class="com.system.model.User"></bean>
+	<bean name="News" class="com.system.model.News"></bean>
+	<bean name="Company" class="com.system.model.Company"></bean>
+	<bean name="verification" class="com.system.utils.VerificationCodeUtil">
+	</bean>
+</beans>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocations">
+			<list>
+				<value>classpath:userOperation.cfg.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	
+	<!-- 配置session数据库 -->
+	<bean id="sessionFactory_t"
+	   class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocations">
+			<list>
+				<value>classpath:sessionOperation.cfg.xml</value>
+			</list>
+		</property>
+	</bean>
+	<!-- session数据库的spring模板 -->
+	<bean id="sessionTemplete" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory_t"></property>
+	</bean>
+	<!-- 配置sessionDao层 -->
+	<bean name="sessionDao" class="com.system.utils.session.SessionDao">
+		<property name="hibernateTemplete" ref="sessionTemplete" />
+	</bean>
+
+	<bean id="hibernateTemplete" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean name="userDao" class="com.system.persist.impl.UserDaoImpl">
+		<property name="hibernateTemplete" ref="hibernateTemplete" />
+	</bean>
+
+	<bean name="newsDao" class="com.system.persist.impl.NewsDaoImpl">
+		<property name="hibernateTemplete" ref="hibernateTemplete" />
+	</bean>
+
+	<bean name="companyDao" class="com.system.persist.impl.CompanyDaoImpl">
+		<property name="hibernateTemplete" ref="hibernateTemplete" />
+	</bean>
+	
+	<bean name="roleDao" class="com.system.persist.impl.RoleDao">
+		<property name="hibernateTemplete" ref="hibernateTemplete" />
+	</bean>
+	
+	<bean name="rightDao" class="com.system.persist.impl.RightDao">
+		<property name="hibernateTemplete" ref="hibernateTemplete" />
+	</bean>
+	
+	<bean name="userRoleDao" class="com.system.persist.impl.UserRoleDao">
+		<property name="hibernateTemplete" ref="hibernateTemplete" />
+	</bean>
+	
+	<bean name="commentDao" class="com.system.persist.impl.CommentDao">
+		<property name="hibernateTemplete" ref="hibernateTemplete" />
+	</bean>
+</beans>

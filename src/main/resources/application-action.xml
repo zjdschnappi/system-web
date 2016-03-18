@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean name="userLogin" class="com.system.action.user.LoginAction">
+		<property name="userService" ref="userService"></property>
+		<property name="sessionService" ref="sessionService"></property>
+	</bean>
+	
+	<bean name="adminLogin" class="com.system.action.admin.UserInfoAction">
+		<property name="userService" ref="userService"></property>
+	</bean>
+	
+	<bean name="userRegister" class="com.system.action.user.RegisterAction">
+		<property name="userService" ref="userService"></property>
+	</bean>
+	
+	<bean name="CompanyLogin" class="com.system.action.company.LoginAction">
+		<property name="companyService" ref="companyService"></property>
+	</bean>
+	<bean name="CompanyRegister" class="com.system.action.company.RegisterAction">
+		<property name="companyService" ref="companyService"></property>
+	</bean>	
+	
+	<bean name="newsCreate" class="com.system.action.news.NewsCreateAction">
+		<property name="newsService" ref="newsService"></property>
+	</bean>
+	<bean name="newsBrief" class="com.system.action.news.NewsBriefInfoAction">
+		<property name="newsService" ref="newsService"></property>
+	</bean>
+	<bean name="newsChange" class="com.system.action.news.NewsChangeAction">
+		<property name="newsService" ref="newsService"></property>
+	</bean>
+	<bean name="newsCheck" class="com.system.action.admin.NewsCheck">
+		<property name="newsService" ref="newsService"></property>
+	</bean>
+	<bean name="newsOperation" class="com.system.action.admin.NewsOperation">
+		<property name="newsService" ref="newsService"></property>
+	</bean>
+	<bean name="newsDetailInfo" class="com.system.action.news.NewsDetailInfo">
+		<property name="newsService" ref="newsService"></property>
+		<property name="commentService" ref="commentService"></property>
+	</bean>
+	
+	<bean name="securityCodeImageAction" class="com.system.action.user.UserCaptcha">
+		<property name="verification" ref="verification"></property>
+	</bean>
+	
+	<bean name="commentPublish" class="com.system.action.user.CommentPublish">
+		<property name="commentService" ref="commentService"></property>
+	</bean>
+</beans>

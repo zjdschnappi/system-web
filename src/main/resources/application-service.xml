@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean name="userService" class="com.system.core.impl.UserServiceImpl">
+		<property name="userDao" ref="userDao"></property>
+		<property name="roleDao" ref="roleDao"></property>
+		<property name="userRoleDao" ref="userRoleDao"></property>
+	</bean>
+
+	<bean name="newsService" class="com.system.core.impl.NewsServiceImpl">
+		<property name="newsDao" ref="newsDao"></property>
+		<property name="companyDao" ref="companyDao"></property>
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	
+	<bean name="companyService" class="com.system.core.impl.CompanyServiceImpl">
+		<property name="companyDao" ref="companyDao"></property>
+	</bean>
+	
+	<bean name="sessionService" class="com.system.utils.session.SessionService">
+		<property name="sessionDao" ref="sessionDao"></property>
+	</bean>
+	
+	<bean name="commentService" class="com.system.core.impl.CommentServiceImpl">
+		<property name="commentDao" ref="commentDao"></property>
+		<property name="userDao" ref="userDao"></property>
+		<property name="newsDao" ref="newsDao"></property>
+	</bean>
+</beans>
+
